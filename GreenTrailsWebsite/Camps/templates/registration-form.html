@@ -1,0 +1,257 @@
+{% extends 'file.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}GreenTrails - Registration{% endblock %}
+    </title>
+    {% load static %}
+</head>
+<body >
+{% block content %}
+<div class="hero-image7">
+    <div class="hero-text7">
+      <h1>GREENTRAILS</h1>
+      <p>Go Where You Feel Most Alive</p>
+      
+    </div>
+  </div>
+
+    <form action="confirmation/" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="container py-5">
+            <div class="row py-3 px-3 px-sm-0 booking ">
+                <div class="col-md-12 mt-5"  data-aos="zoom-in">
+                    <div id="camp_card" class="shadow-sm py-2 px-lg-5 px-3 card">
+                        <div id="step1" class="row row-eq-height my-2">
+                            <h5><strong>Step 1: Check your camp details:-</strong></h5>
+                        </div>
+                        <hr style="color:#bbbbbb;" class="mt-0">
+                        <div class="row text-left">
+                            <div class="col-md-3 mt-2">
+                                <label style="color: green"><b>Camp</b></label>
+                                <p>{{ camp.0.title }}</p>
+                                <input type="hidden" name="camp" value="{{ camp.0.title }}">
+                            </div>
+
+                            <div class="col-md-4 mt-2">
+                                <div><label style="color: green"><b>Package</b></label></div>
+                                <select class="w-100 p-1" id="pack" name="pack"required>
+                                    <option value="NA" selected>Select Package</option>
+                                    {% for i in package %}
+                                        <option value="{{i.0}}">{{ i.0 }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-3 mt-2">
+                                <div><label style="color: green"><b>Date</b></label></div>
+                                <select class="w-100 p-1" name="date" required>
+                                    <option selected>Select Date</option>
+                                    {% for i in date %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-2 mt-2">
+                                <label style="color: green"><b>Rate</b></label>
+                                <p class="rate">NA</p>
+                                <input type="hidden" name="Rate" id="Rate" value="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-4"  data-aos="zoom-in">
+                    <div class="shadow-sm py-2 px-lg-5 px-3 card">
+                        <div class="row row-eq-height my-2">
+                            <h5><strong>Step 2: Fill your Application:-</strong></h5>
+                        </div>
+                        <hr style="color:#bbbbbb;" class="mt-0">
+                        <div id="step2a" style="background-color: green;" class="text-center mt-2 py-1 text-white">
+                            Personal Details
+                        </div>
+                        <div class="row text-left">
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green;"><b>Your Full Name</b></label></div>
+                                <input type="text" class="w-100" name="name" id="name" required>
+                            </div>
+
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green;"><b>Your Email</b></label></div>
+                                <input type="email" class="w-100" name="email" id="email" required>
+                            </div>
+
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green;"><b>Your Mobile</b></label></div>
+                                <input type="tel" class="w-100" name="mobile" id="mobile" required>
+                            </div>
+
+
+                            <div class="col-md-12 mt-3">
+                                <div><label style="color: green;"><b>Address</b></label></div>
+                                <textarea id="address" class="w-100" name="address" style="height: 60px" required></textarea>
+                            </div>
+
+                            <div class="col-md-6 mt-3">
+                                <div><label style="color: green;"><b>Your ID proof (Aadhaar Card, Driving Licence, College ID, etc)</b></label></div>
+                                <input type="file" class="w-100" id="id_proof" name="id_proof" data-cropper="cropperImageIdProof" data-modal="cropperModalIdProof" accept="image/jpg, image/jpeg, image/png" required>
+                            </div>
+
+                            <div class="col-md-6 mt-3">
+                                <div><label style="color: green;"><b>Your Photo (Passport Size)</b></label></div>
+                                <input type="file" class="w-100" id="photo" name="photo" data-cropper="cropperImagePhoto"
+                                       data-modal="cropperModalPhoto" accept="image/jpg, image/jpeg, image/png" required>
+                            </div>
+
+                            <div class="col-md-3 mt-3">
+                                <div><label style="color: green;"><b>Birth Date</b></label></div>
+                                <input type="date" class="w-100"  name="bdate" id="bdate" required>
+                            </div>
+
+                            <div class="col-md-3 mt-3">
+                                <div><label style="color: green;"><b>Gender</b></label></div>
+                                <select id="gender" class="w-100"  name="gender" required>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3 mt-3">
+                                <div><label style="color: green;"><b>Blood Group</b></label></div>
+                                <select id="blood_group" class="w-100"  name="blood_group" required>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3 mt-3">
+                                <div><label style="color: green;"><b>Weight in Kg</b></label></div>
+                                <input type="number" class="w-100"  name="weight" id="weight" required>
+                            </div>
+
+                            <div class="col-md-3 mt-3">
+                                <div><label style="color: green;"><b>Occupation</b></label></div>
+                                <input type="text" class="w-100" name="occupation" id="occupation" required>
+                            </div>
+
+                            <div class="col-md-9 mt-3">
+                                <div><label style="color: green;"><b>College / Organization</b></label></div>
+                                <input type="text" class="w-100" name="organization" id="organization">
+                            </div>
+
+                        </div>
+
+                        <div id="step2b" style="background-color: green;" class=" text-center mt-4 py-1 text-white">Guardian Details</div>
+                        <div class="row text-left">
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green"><b>Guardian's Name</b></label></div>
+                                <input type="text" class="w-100" name="guardian_name" id="guardian_name" required>
+                            </div>
+
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green"><b>Guardian's Email</b></label></div>
+                                <input type="email" class="w-100" name="guardian_email" id="guardian_email" required>
+                            </div>
+
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green"><b>Guardian's Mobile</b></label></div>
+                                <input type="tel" class="w-100" name="guardian_mobile" id="guardian_mobile" required>
+                            </div>
+                        </div>
+
+                        <div id="step2c" style="background-color: green;" class=" text-center mt-4 py-1 text-white">Other Details</div>
+                        <div class="row text-left">
+                            <div class="col-md-12 mt-3">
+                                <div><b><label style="color: green">Have you ever participated in such camps? (If Yes, Where?)</label></b></div>
+                                <input type="text" class="w-100" name="participated_where" id="participated_where" required>
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <div><b><label style="color: green">Are you suffereing from any disease/phobia?</label></b></div>
+                                <input type="text" class="w-100" name="disease_phobia" id="disease_phobia" required>
+                            </div>
+
+                            <div class="col-md-12 my-3">
+                                <div><b><label style="color: green">How did you got to know about GreenTrails?</label></b></div>
+                                <select id="reference" class="w-100 py-1" name="reference" required>
+                                    <option value="Friends">Friends</option>
+                                    <option value="Family">Family</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Poster">Poster</option>
+                                    <option value="Other Social Media">Other Social Media</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div id="step2b" style="background-color: green;" class=" text-center mt-4 py-1 text-white">For Online Payment (Optional)</div>
+                        <div class="row text-left mb-4">
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green"><b>Name</b></label></div>
+                                <input type="text" class="w-100" placeholder="Your Gpay,paytm name...." name="online_name" id="guardian_name">
+                            </div>
+
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green"><b>Email</b></label></div>
+                                <input type="email" class="w-100" placeholder="Your Gpay,paytm email...." name="online_email" id="guardian_email">
+                            </div>
+
+                            <div class="col-md-4 mt-3">
+                                <div><label style="color: green"><b>Mobile</b></label></div>
+                                <input type="tel" class="w-100" placeholder="Your Gpay,paytm mobile...." name="online_mobile" id="guardian_mobile">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-4"  data-aos="zoom-in">
+                    <div class="shadow-sm py-2 px-lg-5 px-3 card text-center">
+                        <div class="custom-control custom-checkbox text-left mb-2">
+                            <input type="checkbox" id="terms" name="terms" class="custom-control-input" required>
+                            <label class="custom-control-label text-basic" for="terms">I have read and agree to
+                                GreenTrails general informaton guide, program profile and terms &amp; conditions.
+                            I agree to participate in camp being organized by Peak Hikers and hereby declare that I am attending the camp/activity at my own
+                            risk and responsibility. GreenTrais is not responsible for any such case/incident/accident taken place in above mentioned subject.</label>
+                        </div>
+
+                        <div class="mt-2 text-center">
+                            <button type="submit" id="register-btn" class="btn btn-outline-success info mb-2 ld-ext-right">Submit Details and Proceed
+                                <div class="ld ld-ring ld-spin"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $("#pack").change(function () {
+            {% for i in package %}
+                if ("{{ i.0 }}" == $("#pack").val()) {
+                    console.log("{{ i.0 }}");
+                    document.getElementsByClassName('rate')[0].innerHTML = "&#x20B9; {{ i.1 }}";
+                    document.getElementById('Rate').value = "{{ i.1 }}";
+                }
+            {% endfor %}
+            if ($("#pack").val() == "NA"){
+                document.getElementsByClassName('rate')[0].innerHTML = "NA";
+                document.getElementById('Rate').value = "0";
+            }
+        });
+    </script>
+{% endblock %}
+</body>
+</html>

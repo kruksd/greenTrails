@@ -1,0 +1,80 @@
+{% extends 'file.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GreenTrails - About{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="hero-image3">
+        <div class="hero-text3">
+          <h1>GreenTrails/About</h1>
+          
+        </div>
+      </div>
+      <section>
+          <div class="container">
+              {% for about_us in about %}
+            <div class="row">
+                
+                <div class="col-lg-6 col-sm-12"  data-aos="zoom-in">
+                    <h1>Welcome To <span style="color: green;">Green</span>Trails</h1>
+                    <p style="text-align: justify;">{{about_us.about_para}}</p>
+  
+                </div>
+                <div class="col-lg-6 col-sm-12"  data-aos="zoom-in">
+                    <img class="shadow-lg" src="{{about_us.about_image.url}}" height="333px" width="500px" class="img-fluid" alt="">
+                    
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+          
+      </section>
+      <section  style="margin-top: -50px;">
+        <div class="container">
+            <div class="section-title">
+              <h2>Our Motives</h2>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for about_uss in about %}
+                <div class="col"  data-aos="zoom-in">
+                  <div class="card shadow-lg rounded">
+                   
+                    <div class="card-body">
+                      <h5 class="card-title">Vision</h5>
+                      <p class="card-text">{{about_uss.vision_para}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col"  data-aos="zoom-in">
+                  <div class="card shadow-lg rounded">
+                   
+                    <div class="card-body">
+                      <h5 class="card-title">Mission</h5>
+                      <p class="card-text">{{about_uss.mission_para}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col"  data-aos="zoom-in">
+                  <div class="card shadow-lg rounded">
+                    
+                    <div class="card-body">
+                      <h5 class="card-title">Objective</h5>
+                      <p class="card-text">{{about_uss.objective_para}}</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+               
+              </div>
+
+      </section>
+    {% endblock %}
+    
+</body>
+</html>

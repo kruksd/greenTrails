@@ -1,0 +1,273 @@
+{% extends 'file.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Camp Information{% endblock %}</title>
+  </head>
+  <body>
+    {% block content %}
+    <div class="hero-image5">
+      <div class="hero-text5">
+        <h1>GreenTrails/{{camp.0.title}}</h1>
+      </div>
+    </div>
+    <div class="container">
+      {% for camps in camp %}
+      <div
+        class="card shadow-lg rounded"
+        style="margin: 2% 2%; padding-top: 20px; padding-bottom: 40px"  data-aos="zoom-in"
+      >
+        <div style="margin: 0 3%">
+          <div class="row centerClass">
+            <div class="col-lg-6 col-sm-12">
+              <h4>{{camps.title}}</h4>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+              <button class="btn btn-outline-success btnClass">
+                {{camps.camp_price}}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr style="margin: 1% 2%" />
+        <div class="row marginClass" style="margin-bottom: 10px">
+          <div class="col-md-4">
+            <img
+              src="{{camps.image.url}}"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="mhn-text row marginClass1">
+              <div class="col-4">
+                <h6 style="color: green">Season</h6>
+                <p>{{camps.camp_season}}</p>
+              </div>
+              <div class="col-4">
+                <h6 style="color: green">Day/Night</h6>
+                <p>{{camps.camp_days}}D-{{camps.camp_nights}}N</p>
+              </div>
+              <div class="col-4">
+                <h6 style="color: green">Altitude</h6>
+                <p>{{camps.camp_altitude}}+ ft</p>
+              </div>
+            </div>
+            <div>
+              <p style="text-align: justify">
+                <strong>Description:</strong>{{camps.description}}
+              </p>
+              <br />
+              <p style="color: grey">
+                <small
+                  ><strong style="color: black">Note:</strong
+                  >{{camps.camp_note}} *</small
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div style="text-align: center">
+              <h6 style="color: green">Difficulty Level</h6>
+              <div>
+                <img
+                  style="display: inline"
+                  src="https://www.trekon.in/img/easy.png"
+                  alt=""
+                />
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12 col-sm-12" style="margin-bottom: 15px">
+                  <a href="{{camps.camp_brochure.url}}" download
+                    ><button class="btn btn-success">Brochure</button></a
+                  >
+                </div>
+                <div class="col-lg-12 col-sm-12">
+                  <form action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    <input
+                      type="hidden"
+                      name="camptitle"
+                      value="{{ camps.title }}"
+                    />
+                    <button type="submit" class="btn btn-success">
+                      Book Now!
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <section id="portfolio" class="portfolio">
+      <div class="container"  data-aos="zoom-in">
+        <div class="row" style="margin: 0 5%">
+          <div class="col-lg-12 d-flex justify-content-center shadow-lg">
+            <ul
+              id="portfolio-flters"
+              style="
+                margin-top: auto;
+                margin-bottom: auto;
+                padding-top: 15px;
+                padding-bottom: 15px;
+              "
+            >
+              <li data-filter=".filter-about" class="filter-active">About</li>
+              <li data-filter=".filter-schedule">Schedule</li>
+              <li data-filter=".filter-places-to-visit">Places to visit</li>
+              <li data-filter=".filter-activites">Activities</li>
+              <li data-filter=".filter-inclusion">Inclusions</li>
+              <li data-filter=".filter-exclusion">Exclusion</li>
+              <li data-filter=".filter-things-to-carry">Things To Carry</li>
+              <li data-filter=".filter-things-to-guidelins">Guidelines</li>
+              <li data-filter=".filter-things-to-suggestions">Suggestions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="row portfolio-container shadow-lg"
+          style="margin: 20px 5% 0 5%;text-align: justify;border-width: 1px;border-color: black;border-style: solid;padding: 2px;"
+        >
+          <div
+            class="col-lg-12 portfolio-item filter-about"
+            style="padding-top: 15px;"
+          >
+            <p >{{ camp.0.camp_about }}</p>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 portfolio-item filter-schedule"
+            style="padding-top: 15px"
+          >
+            <div style="font-family: 'Open Sans', serif">
+              <!-- {% for sch in schedule %}
+              <ul>
+                <li>{{ sch }}</li>
+              </ul>
+              {% endfor %} -->
+              {% for sch in schedule %}
+              <p>{{sch.0}}</p>
+                            <ul>
+                                {% for s in sch %}
+                                   
+                                    <li>{{ s }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endfor %}
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 portfolio-item filter-places-to-visit"
+            style="padding-top: 15px"
+          >
+            <div style="font-family: 'Open Sans', serif">
+              <ul >
+                {% for p in place %}
+                <li>{{ p }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 portfolio-item filter-activites"
+            style="padding-top: 15px"
+          >
+            <div style="font-family: 'Open Sans', serif">
+              <ul>
+                {% for act in activity %}
+                <li>{{ act }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 portfolio-item filter-inclusion"
+            style="padding-top: 15px"
+          >
+            <div style="font-family: 'Open Sans', serif">
+              <ul>
+                {% for inc in inclusion %}
+                <li>{{ inc }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 portfolio-item filter-exclusion"
+            style="padding-top: 15px"
+          >
+            <div style="font-family: 'Open Sans', serif">
+              <ul>
+                {% for exc in exclusion %}
+                <li>{{ exc }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 portfolio-item filter-things-to-carry"
+            style="padding-top: 15px"
+          >
+            <div style="font-family: 'Open Sans', serif">
+              <ul>
+                {% for ct in carried_thing %}
+                <li>{{ ct }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 portfolio-item filter-things-to-guidelins"
+            style="padding-top: 15px"
+          >
+            <div style="font-family: 'Open Sans', serif">
+              <ul>
+                {% for gl in guideline %}
+                <li>{{ gl }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="
+              col-lg-4 col-md-6
+              portfolio-item
+              filter-things-to-suggestions
+            "
+            style="padding-top: 15px"
+          >
+            <div style="font-family: 'Open Sans', serif">
+              <ul>
+                {% for inst in instruction %}
+                <li>{{ inst }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Portfolio Section -->
+
+    {% endblock %} {%block js %}
+    <script></script>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %}{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+  <script>
+    
+
+  </script>
+  
+  
+
+  <!-- Template Main CSS File -->
+  <link href="{% static '' %}assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Company - v4.6.1
+  * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{% url 'home' %}"><img class="logo" src="{% static 'assets/img/GreenTrailsLogo.png' %}" alt=""></a><a class="invisibleClass" href="{% url 'home' %}"><span>GREEN</span>TRAILS</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/GreenTrailsLogo.png" alt="GreenTrailsLogo" class="img-fluid"></a> -->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul class="me-auto">
+          <li><a href="{% url 'home' %}" class="active">Home</a></li>
+
+          
+
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'camps' %}">Camps/Events</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex">
+
+        <a href="https://www.facebook.com/trailsgreen" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="https://www.instagram.com/greentrailstrek/" class="instagram"><i class="bu bi-instagram"></i></a>
+        <a href="https://wa.me/919106733162" class="instagram"><i class="bu bi-whatsapp"></i></a>
+
+      
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+{% block content %}
+{% endblock %}
+  
+
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>GreenTrails</h3>
+            <p style="text-align: left;">
+              We have expert adventure sports trainers and experienced travelling aides on board for guidance and assistance during the journey.
+             
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links ">
+            <h4>Quick Links</h4>
+            <ul >
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Camps/Events</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
+              
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Contact Us</h4>
+            <ul >
+              <li><i class="fa fa-phone" ></i> <a href="tel:9106733162"> +91 9106733162</a></li>
+              <li><i class="fa fa-envelope "></i> <a href="mailto:trailsgreen@gmail.com"> trailsgreen@gmail.com</a></li>
+              
+              
+            </ul>
+          </div>
+
+          
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Find Your Way To Us</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.934494498945!2d73.16204251495434!3d22.280471085333943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc70e6f3594d9%3A0x42a734e8bc8a4d32!2sGREEN%20TRAILS!5e0!3m2!1sen!2sin!4v1634408248412!5m2!1sen!2sin" width="400" height="300" class="img-fluid" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Company</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
+          Designed by <a href="https://devkrutitech.com/">DevKrutiTech</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+        <a href="https://www.facebook.com/trailsgreen" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/greentrailstrek/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://wa.me/919106733162" class="instagram"><i class="bx bxl-whatsapp"></i></a>
+        <!-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> --> 
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+ 
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  <script>
+    window.addEventListener('load', () => {
+        AOS.init({
+          duration: 1000,
+          easing: 'ease-in-out',
+          once: false,
+          mirror: false
+        })
+      });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js" charset="utf-8"></script>
+
+{%block js %}{% endblock %}
+
+
+</body>
+
+</html>

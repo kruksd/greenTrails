@@ -1,0 +1,91 @@
+{% extends 'file.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GreenTrails - Contact{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="hero-image4">
+        <div class="hero-text4">
+          <h1>GreenTrails/Contact</h1>
+          
+        </div>
+      </div>
+      <section  style="margin-top: -30px;">
+        <div class="container">
+           
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                
+                <div class="col"  data-aos="zoom-in">
+                  <div class="card shadow-lg">
+                   
+                    <div class="card-body">
+                      <h5 class="card-title">Get In Touch</h5>
+                      <p class="card-text">Have a query or suggestion? Please let us know by filling the form.</p>
+                      <form>
+                        <div class="mb-1">
+                            <label for="exampleInputEmail1" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required aria-describedby="emailHelp">
+                            
+                          </div>
+                        <div class="mb-1">
+                          <label for="email" class="form-label">Email:</label>
+                          <input type="email" class="form-control" id="email" required aria-describedby="emailHelp">
+                          
+                        </div>
+                        <div class="mb-1">
+                          <label for="subject" class="form-label">Subject</label>
+                          <input type="text" class="form-control" required id="subject">
+                        </div>
+                        <div class="mb-1">
+                            <label for="message" class="form-label">Message:</label>
+                            <textarea class="form-control" name="message" required id="" cols="30" rows="2"></textarea>
+                          </div>
+                        
+                        <button type="submit" class="btn btn-success">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col"  data-aos="zoom-in">
+                    <div class="card shadow-lg">
+                     
+                      <div class="card-body">
+                        <h5 class="card-title">Reach Us</h5>
+                        <p class="card-text">Wanna meet in person and get detailed information? Reach us at following address</p>
+                        
+                        <h6 style="color: green;">Address</h6>
+                        <p>
+                          601/3 Signet Hub, <br>
+                          Nr. Akshar Chowk,<br>
+                          Vadodara, Gujarat-390020 
+                        </p>
+                        <h6 style="color: green;">Contact Numbers</h6>
+                        <p style="display: block;"><a style="color: black;" href="tel:9106733162">+91 9106733162</a><br><a style="color: black;" href="tel:9099964490">+91 9099964490</a></p>
+                        
+                        <h6 style="color: green;">Email</h6>
+                        <p style="color: black;"><a style="color: black;" href="mailto:trailsgreen@gmail.com">trailsgreen@gmail.com</a></p>
+                        <h6 style="color: green;">Social Media</h6>
+                        <div class="header-social-links d-flex">
+
+                            <a href="https://www.facebook.com/trailsgreen" class="facebook"><i class="bu bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/greentrailstrek/" class="instagram"><i class="bu bi-instagram"></i></a>
+                            <a href="https://wa.me/919106733162" class="instagram"><i class="bu bi-whatsapp"></i></a>                          
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+               
+               
+              </div>
+
+      </section>
+   
+    {% endblock %}
+    
+</body>
+</html>
